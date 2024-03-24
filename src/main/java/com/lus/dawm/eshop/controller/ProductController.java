@@ -1,6 +1,7 @@
 package com.lus.dawm.eshop.controller;
 
 import com.lus.dawm.eshop.model.Product;
+import com.lus.dawm.eshop.service.CategorieService;
 import com.lus.dawm.eshop.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ public class ProductController {
 
     @Autowired
     private ProductService productService;
+    @Autowired
+    private CategorieService categorieService;
 
     @GetMapping("/products")
     public String listProducts(Model model) {
@@ -24,7 +27,7 @@ public class ProductController {
     @GetMapping("/products/new")
     public String showNewProductForm(Model model) {
         model.addAttribute("product", new Product());
-        //model.addAttribute("categories", categorieRepository.findAll());
+        model.addAttribute("categories", categorieService.getAllCategories());
         return "/admin/product/create";
     }
 
