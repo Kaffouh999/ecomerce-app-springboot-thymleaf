@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" th:href="@{/style/style.css}"/>
 </head>
 <body>
+<header>
+    <div th:replace="~{'/menu.html'}"></div>
+</header>
 <h1>Add New Product</h1>
 <form th:action="@{/products/save}" th:object="${product}" method="post">
     <div>
@@ -13,7 +17,7 @@
     </div>
     <div>
         <label for="description">Description:</label>
-        <textarea id="description" th:field="*{description}" rows="3"></textarea>
+        <textarea id="description" th:field="*{description}" rows="3" ></textarea>
     </div>
     <div>
         <label for="qte">Quantity:</label>

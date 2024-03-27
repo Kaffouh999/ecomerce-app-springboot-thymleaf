@@ -6,8 +6,11 @@
     <link rel="stylesheet" th:href="@{/style/style.css}"/>
 </head>
 <body>
+<header>
+    <div th:replace="~{'/menu.html'}"></div>
+</header>
 <h1>Products List</h1>
-<a th:href="@{/products/new}">Add New Product</a>
+<a class="new-button" th:href="@{/products/new}">Add</a>
 <table>
     <thead>
     <tr>
