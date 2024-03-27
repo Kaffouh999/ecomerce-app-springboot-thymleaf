@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Categories List</title>
+    <link rel="stylesheet" th:href="@{/style/style.css}"/>
+</head>
+<body>
+<h1>Categories List</h1>
+<a th:href="@{/categories/new}">Add New Category</a>
+<table >
+    <thead>
+    <tr>
+        <th>Designation</th>
+        <th>Description</th>
+        <th>Parent Category</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="category : ${categories}">
+        <td th:text="${category.designation}"></td>
+        <td th:text="${category.description}"></td>
+        <td th:text="${category.parentCategorie != null ? category.parentCategorie.designation : ''}"></td>
+        <td>
+            <a th:href="@{/categories/edit/{id}(id=${category.id})}">Edit</a>
+            <a href="#" th:onclick="confirmDelete([[${category.id}]])">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<script>
+    function confirmDelete(categoryId) {
+        if (confirm("Are you sure you want to delete this category?")) {
+            window.location.href = "/categories/delete/" + categoryId;
+        }
+    }
+</script>
+</body>
+</html>

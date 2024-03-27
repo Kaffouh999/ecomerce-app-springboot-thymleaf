@@ -4,7 +4,7 @@ import com.lus.dawm.eshop.model.Categorie;
 
 import java.util.List;
 
-public interface CategorieService {
+public interface CategoryService {
     List<Categorie> getAllCategories();
     Categorie getCategorieById(Long id);
     Categorie saveCategorie(Categorie categorie);

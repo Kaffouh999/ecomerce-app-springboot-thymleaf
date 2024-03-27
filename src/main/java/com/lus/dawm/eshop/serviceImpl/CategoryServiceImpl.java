@@ -2,14 +2,14 @@ package com.lus.dawm.eshop.serviceImpl;
 
 import com.lus.dawm.eshop.model.Categorie;
 import com.lus.dawm.eshop.repository.CategorieRepository;
-import com.lus.dawm.eshop.service.CategorieService;
+import com.lus.dawm.eshop.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class CategorieServiceImpl implements CategorieService {
+public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
     private CategorieRepository categorieRepository;

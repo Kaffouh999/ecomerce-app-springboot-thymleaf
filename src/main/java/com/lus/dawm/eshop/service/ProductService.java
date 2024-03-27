@@ -11,7 +11,7 @@ public interface ProductService {
 
     public Optional<Product> findById(Long id);
 
-    public void delete(Product entity);
+    public void delete(Long id);
 
     public List<Product> findAll();
 }

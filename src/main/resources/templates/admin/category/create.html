@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Category</title>
+</head>
+<body>
+<header>
+    <div th:include="~{'admin/menu/menu' :: menu}"></div>
+
+</header>
+<h1>Add New Category</h1>
+<form th:action="@{/categories/save}" th:object="${category}" method="post">
+    <div>
+        <label for="designation">Designation:</label>
+        <input type="text" id="designation" th:field="*{designation}" required>
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        <textarea id="description" th:field="*{description}" rows="3"></textarea>
+    </div>
+    <div>
+        <label for="parentCategorie">Parent Category:</label>
+        <select id="parentCategorie" th:field="*{parentCategorie}">
+            <option value="">-- Select Parent Category --</option>
+            <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.designation}"></option>
+        </select>
+    </div>
+    <button type="submit">Save Category</button>
+</form>
+</body>
+</html>
