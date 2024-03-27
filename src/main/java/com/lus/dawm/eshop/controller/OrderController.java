@@ -2,15 +2,15 @@ package com.lus.dawm.eshop.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 
 
-@RestController
-@RequestMapping("/order")
+@Controller
+@RequestMapping("/orders")
 public class OrderController {
     private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
 
@@ -32,7 +32,7 @@ public class OrderController {
     public String deleteOrder(Long id) {
         logger.info("delete order");
 
-        return "redirect:/order";
+        return "redirect:/orders";
     }
 
 
