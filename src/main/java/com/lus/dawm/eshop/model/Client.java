@@ -11,6 +11,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Client extends Utilisateur implements Serializable{
 
 	/**
@@ -24,9 +25,10 @@ public class Client extends Utilisateur implements Serializable{
 	private Long id;
 	private String email, adresse;
 	private Date dateNaissance;
-	private Panier panier;
 	@OneToMany(mappedBy = "client")
 	private List<Commande> commandes;
-	
+	@Transient
+	private Panier panier;
+
 
 }

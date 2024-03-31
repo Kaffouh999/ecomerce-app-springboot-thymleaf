@@ -3,6 +3,7 @@ package com.lus.dawm.eshop.controller;
 import com.lus.dawm.eshop.model.Product;
 import com.lus.dawm.eshop.service.CategoryService;
 import com.lus.dawm.eshop.service.ProductService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +22,7 @@ public class ProductController {
     private CategoryService categoryService;
 
     @GetMapping("")
-    public String listProducts(Model model) {
+    public String listProducts(HttpSession session, Model model) {
         model.addAttribute("products", productService.findAll());
         return "admin/product/lister";
     }

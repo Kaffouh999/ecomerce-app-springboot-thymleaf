@@ -2,6 +2,7 @@ package com.lus.dawm.eshop.controller;
 
 import com.lus.dawm.eshop.model.Categorie;
 import com.lus.dawm.eshop.service.CategoryService;
+import jakarta.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class CategoryController {
 
 
     @GetMapping
-    public String listCategories(Model model) {
+    public String listCategories(HttpSession session, Model model) {
         logger.info("Listing categories");
         model.addAttribute("categories", categoryService.getAllCategories());
         return "admin/category/lister";
