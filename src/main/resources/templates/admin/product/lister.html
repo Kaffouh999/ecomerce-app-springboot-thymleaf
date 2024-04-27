@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Products List</title>
@@ -9,7 +10,13 @@
 <header>
     <div th:replace="~{'/menu.html'}"></div>
 </header>
-<h1>Products List</h1>
+<h1>
+    <span sec:authorize="hasRole('USER')"> User</span>
+    <span sec:authorize="hasRole('ADMIN')"> Admin</span>
+    <span sec:authorize="hasRole('CLIENT')"> Client</span>
+    Products List
+</h1>
+
 <a class="new-button" th:href="@{/products/new}">Add</a>
 <table>
     <thead>
